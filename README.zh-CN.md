@@ -8,6 +8,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![欢迎 PR](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/tiansuo-114/AE-agent/pulls)
 
+> ⭐ **如果这个项目对你有帮助，点个 Star 吧** — 这能让更多人发现它，也是对我们最直接的支持。
+> 
+> 👋 **想一起做这个项目？** 无论你是动效设计师、开发者，还是单纯感兴趣—— PR、建议、反馈我们都欢迎。看看 [Roadmap](#路线图) 和 [贡献指南](#参与贡献) 开始吱。
+
 ---
 
 ## 它是什么

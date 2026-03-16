@@ -8,6 +8,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/tiansuo-114/AE-agent/pulls)
 
+> ⭐ **If this project saves you time, a star goes a long way** — it helps others discover the project and motivates continued development.
+> 
+> 👋 **Want to help build it?** Whether you’re a motion designer, developer, or just curious — contributions, ideas, and feedback are all welcome. Check the [roadmap](#roadmap) and [contributing guide](#contributing) to get started.
+
 ---
 
 ## What is AE-Agent?
