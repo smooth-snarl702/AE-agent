@@ -1,0 +1,28 @@
+# Backup folders
+backup_*/
+
+# Original unpatched JS (large file, not needed)
+extracted/assets/main-Bumuo9MN.original.js
+
+# Font files (large, not modified)
+*.ttf
+*.woff2
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Temp files
+*.tmp
+*.log
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/

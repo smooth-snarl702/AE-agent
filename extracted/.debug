@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+    <Extension Id="com.atom-ae.extension.dev">
+        <HostList>
+            <Host Name="AEFT" Port="9191"/>
+        </HostList>
+    </Extension>
+    <Extension Id="com.atom-ae.extension">
+        <HostList>
+            <Host Name="AEFT" Port="9193"/>
+        </HostList>
+    </Extension>
+</ExtensionList>
