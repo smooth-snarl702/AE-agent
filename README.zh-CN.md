@@ -8,9 +8,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![欢迎 PR](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/tiansuo-114/AE-agent/pulls)
 
-> ⭐ **如果这个项目对你有帮助，点个 Star 吧** — 这能让更多人发现它，也是对我们最直接的支持。
-> 
-> 👋 **想一起做这个项目？** 无论你是动效设计师、开发者，还是单纯感兴趣—— PR、建议、反馈我们都欢迎。看看 [Roadmap](#路线图) 和 [贡献指南](#参与贡献) 开始吱。
+> [!TIP]
+> ⭐ **如果这个项目对你有帮助，请点个 Star 支持一下** — 这是我们最大的动力！
+
+> [!NOTE]
+> 👋 **想一起做这个项目？** 我们需要开发者、动效设计师、AE 达人——无论你贡献代码、写文档还是提交 Issue，都是宝贵的贡献。点击 [Roadmap](#路线图) 和 [贡献指南](#参与贡献) 了解如何开始。
 
 ---
 
@@ -45,6 +47,12 @@ AE-Agent 通过 CEP 面板将 AI 自动化能力直接带入 After Effects。不
 - 所有密钥存储在 `localStorage`，不传输给第三方
 - 聊天模型与图像生成分别独立配置
 
+### 🧩 第三方插件支持
+- **Red Giant 全家桶**：Trapcode Particular / Form / Shine / Starglow、Magic Bullet Looks / Colorista、Universe 等
+- **Video Copilot 系列**：Saber、Optical Flares、Element 3D（可控制数值参数）
+- **所有暴露属性的 AE 特效**：Agent 可读取并修改任意已安装插件的可调数值参数
+- 注：需要独立 UI 面板操作的功能（如 E3D Scene Setup）不在自动化范围内
+
 ---
 
 ## 支持的操作能力
@@ -54,10 +62,11 @@ AE-Agent 通过 CEP 面板将 AI 自动化能力直接带入 After Effects。不
 | **图层管理** | 创建、重命名、重组、批量编辑图层 |
 | **动画制作** | 设置关键帧、表达式、缓动、错开时序 |
 | **特效配置** | 按名称应用并调整任意 AE 内置特效 |
+| **第三方插件** | 控制 Trapcode、Magic Bullet、Saber 等插件的数值参数 |
 | **文字动画** | 逐字符控制的文字动画 |
 | **形状图层** | 构建复杂形状图层和路径动画 |
 | **脚本执行** | 生成并运行任意 ExtendScript |
-| **抠像处理** | 配置 Keylight 等抠像特效 |
+| **抠像处理** | 配置 Keylight、Cryptomatte 等抠像特效 |
 | **跟踪稳定** | 触发 Warp Stabilizer、摄像机跟踪 |
 | **图像资产** | 生成并导入 AI 创建的素材 |
 

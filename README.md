@@ -8,9 +8,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/tiansuo-114/AE-agent/pulls)
 
-> ⭐ **If this project saves you time, a star goes a long way** — it helps others discover the project and motivates continued development.
-> 
-> 👋 **Want to help build it?** Whether you’re a motion designer, developer, or just curious — contributions, ideas, and feedback are all welcome. Check the [roadmap](#roadmap) and [contributing guide](#contributing) to get started.
+> [!TIP]
+> ⭐ **If this project saves you time, please give it a Star** — it’s the biggest motivation for us to keep going!
+
+> [!NOTE]
+> 👋 **Want to help build it?** We need developers, motion designers, and AE power users — whether you contribute code, docs, or just file issues, it all counts. Check the [roadmap](#roadmap) and [contributing guide](#contributing) to get started.
 
 ---
 
@@ -45,6 +47,12 @@ Ask in natural language. The agent understands your composition, writes and exec
 - All keys stored in `localStorage`, never transmitted to third parties
 - Separate configuration for chat models and image generation
 
+### 🧩 Third-Party Plugin Support
+- **Red Giant suite**: Trapcode Particular / Form / Shine / Starglow, Magic Bullet Looks / Colorista, Universe
+- **Video Copilot**: Saber, Optical Flares, Element 3D (numeric parameters controllable)
+- **Any AE effect that exposes properties**: Agent can read and modify numeric parameters of any installed plugin
+- Note: features requiring a dedicated UI panel (e.g. E3D Scene Setup) are outside the automation scope
+
 ---
 
 ## Supported Capabilities
@@ -54,10 +62,11 @@ Ask in natural language. The agent understands your composition, writes and exec
 | **Layer Management** | Create, rename, reorganize, batch edit layers |
 | **Animation** | Set keyframes, expressions, easing, staggered timing |
 | **Effects** | Apply and configure any AE effect by name |
+| **3rd-Party Plugins** | Control Trapcode, Magic Bullet, Saber and more via numeric params |
 | **Text** | Animate text with per-character control |
 | **Shapes** | Build complex shape layers and path animations |
 | **Scripting** | Generate and run arbitrary ExtendScript |
-| **Keying** | Configure Keylight and other keying effects |
+| **Keying** | Configure Keylight, Cryptomatte and other keying effects |
 | **Tracking** | Trigger Warp Stabilizer and camera tracker |
 | **Images** | Generate and import AI-created assets |
 
