@@ -1,133 +1,161 @@
-# Atom AE — Patched / 破解修改版
+# AE-Agent
 
-> 适用于 **Atom v3.0.3** After Effects 扩展的无限制补丁，支持自定义 API 端点。
+**An AI agent platform for After Effects — run any model, any endpoint, fully under your control.**
 
----
-
-## 功能说明
-
-原版 Atom 要求购买授权并使用官方 AI 服务。本补丁实现：
-
-| 功能 | 说明 |
-|------|------|
-| ✅ 授权绕过 | 跳过 License 验证，无需购买即可使用 |
-| ✅ 自定义 Chat API | 支持任意 OpenAI 兼容端点（本地/第三方）|
-| ✅ 自定义图像 API | 支持替换 OpenRouter 图像生成端点 |
-| ✅ API Key 配置面板 | 注入浮动 UI，无需改代码直接填写 |
-| ✅ Claude Code 认证注入 | 自动把 Key 传入 Claude CLI 子进程 |
+[![GitHub Stars](https://img.shields.io/github/stars/tiansuo-114/AE-agent?style=flat-square)](https://github.com/tiansuo-114/AE-agent/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/tiansuo-114/AE-agent/pulls)
 
 ---
 
-## 安装方法
+## What is AE-Agent?
 
-### 前置要求
+AE-Agent brings AI-powered automation directly into After Effects through a CEP panel. Instead of being locked to a single cloud provider, you connect it to **any OpenAI-compatible API** — whether that's Anthropic, a local Ollama instance, or your own self-hosted model.
 
-- Windows 10/11
-- After Effects 2022 或更新版本
-- Node.js（运行 Claude Code / Codex 所需）
-- Claude Code CLI：`npm install -g @anthropic-ai/claude-code`
+Ask in natural language. The agent understands your composition, writes and executes the script, and verifies the result visually — all without leaving After Effects.
 
-### 方法一：一键脚本（推荐）
+---
+
+## Features
+
+### 🤖 Multi-Model Agent Engine
+- Connects to **Claude Code** or **OpenAI Codex** CLI running locally on your machine
+- Switch API endpoints freely via the built-in settings panel
+- Supports any OpenAI-compatible base URL (local, cloud, proxy)
+
+### 🎬 Deep After Effects Integration
+- Reads full composition structure: layers, effects, keyframes, expressions, masks
+- Writes and executes ExtendScript in real time
+- Verifies results with live frame previews before reporting success
+- Checkpoint system: auto-saves project state before each operation
+
+### 🖼️ Image Generation
+- Generate textures, moodboards, and sprites directly in chat
+- Auto-imports generated images into the project
+- Pluggable image API: swap OpenRouter for any compatible endpoint
+
+### ⚙️ Flexible Configuration
+- Floating settings panel — no code editing required
+- All keys stored in `localStorage`, never transmitted to third parties
+- Separate configuration for chat models and image generation
+
+---
+
+## Supported Capabilities
+
+| Category | What the Agent Can Do |
+|----------|-----------------------|
+| **Layer Management** | Create, rename, reorganize, batch edit layers |
+| **Animation** | Set keyframes, expressions, easing, staggered timing |
+| **Effects** | Apply and configure any AE effect by name |
+| **Text** | Animate text with per-character control |
+| **Shapes** | Build complex shape layers and path animations |
+| **Scripting** | Generate and run arbitrary ExtendScript |
+| **Keying** | Configure Keylight and other keying effects |
+| **Tracking** | Trigger Warp Stabilizer and camera tracker |
+| **Images** | Generate and import AI-created assets |
+
+---
+
+## Getting Started
+
+### Requirements
+
+- Windows 10/11 (macOS support planned)
+- After Effects 2022+
+- Node.js 18+
+- One of: Claude Code CLI or OpenAI Codex CLI
 
 ```powershell
-# 以管理员身份运行 PowerShell
+# Install Claude Code CLI
+npm install -g @anthropic-ai/claude-code
+```
+
+### Installation
+
+```powershell
+# Clone the repo
+git clone https://github.com/tiansuo-114/AE-agent.git
+cd AE-agent
+
+# Run the installer (sets CEP debug mode + copies files)
 .\install.ps1
 ```
 
-脚本会自动：
-1. 设置 `PlayerDebugMode=1` 注册表（绕过 CEP 签名验证）
-2. 复制补丁文件到 `%APPDATA%\Adobe\CEP\extensions\atom-ae\`
+Restart After Effects, then open **Window → Extensions → Atom**.
 
-### 方法二：手动安装
+### Configure Your API
 
-```powershell
-# 1. 设置注册表（绕过签名检查）
-Set-ItemProperty -Path "HKCU:\Software\Adobe\CSXS.11" -Name "PlayerDebugMode" -Value "1"
-
-# 2. 复制文件
-Copy-Item ".\extracted\*" "$env:APPDATA\Adobe\CEP\extensions\atom-ae\" -Recurse -Force
-```
-
----
-
-## 配置自定义 API
-
-安装后重启 AE，打开 Atom 面板。点击右下角浮动的 **⚙ API 设置** 按钮，或在 DevTools Console 中设置：
+Click the **⚙** button in the panel, or open DevTools console:
 
 ```js
-// 聊天模型（Claude Code / Codex 使用的端点）
+// Chat / coding agent
 localStorage.setItem('ATOM_API_KEY', 'your-api-key')
 localStorage.setItem('ATOM_CUSTOM_BASE_URL', 'https://your-endpoint.com')
 
-// 图像生成（默认走 OpenRouter）
-localStorage.setItem('ATOM_IMAGE_API_KEY', 'your-openrouter-key')
+// Image generation
+localStorage.setItem('ATOM_IMAGE_API_KEY', 'your-image-key')
 localStorage.setItem('ATOM_IMAGE_BASE_URL', 'https://openrouter.ai/api/v1')
 ```
 
-### 推荐 API 服务
+---
 
-| 服务 | 说明 | 地址 |
-|------|------|------|
-| Anthropic 官方 | 最稳定，按量计费 | https://console.anthropic.com |
-| OpenRouter | 多模型聚合，支持图像生成 | https://openrouter.ai |
-| agentrouter.org | 社区公益站（免费，限速）| https://agentrouter.org |
-| 本地 Ollama | 完全本地，需要较强 GPU | https://ollama.ai |
+## Roadmap
+
+The following is on the horizon — contributions welcome!
+
+- [ ] **macOS installer** — currently Windows only
+- [ ] **Gemini CLI support** — add Google Gemini as a third agent option
+- [ ] **Premiere Pro port** — apply the same CEP + ExtendScript architecture to Premiere
+- [ ] **Skills library** — community-maintained skill packs for common workflows
+- [ ] **Video frame analysis** — extract frames via ffmpeg and feed to vision models
+- [ ] **Batch mode** — process multiple compositions in queue without supervision
+- [ ] **MCP integration** — expose AE operations as Model Context Protocol tools
+- [ ] **Plugin awareness** — deeper support for Trapcode, Red Giant, and other third-party effects
+- [ ] **Timeline scrubbing via AI** — describe a timing feel and let the agent match it
 
 ---
 
-## 补丁详情
+## Contributing
 
-### 修改文件
-`extracted/assets/main-Bumuo9MN.js`（核心 JS bundle）
+This project is in active development and contributions of all kinds are welcome.
 
-### 补丁列表
+### How to contribute
 
-1. **授权绕过** — `vN()` / `gN()` / `TN()` 函数始终返回已授权/已付费
-2. **Chat API 自定义** — `xN()` 函数优先读取 localStorage Key；OpenAI 客户端初始化时读取自定义 baseURL
-3. **图像 API 自定义** — `yI` 变量和 `gI()` 函数读取 localStorage 图像生成配置
-4. **UI 注入** — 在 `boot-loader:remove` 事件后注入配置面板
-5. **Claude spawn 注入** — 在 Atom 启动 Claude CLI 时注入 `ANTHROPIC_API_KEY` / `ANTHROPIC_BASE_URL`
-6. **Auth 误判修复** — 缩窄 auth error 检测正则，避免普通 API 错误被误判为未登录
+1. **Fork** the repository
+2. Create a feature branch: `git checkout -b feature/my-idea`
+3. Make your changes
+4. Open a **Pull Request** with a clear description
 
-### 重新生成补丁（可选）
+### Good first contributions
 
-如需对新版本 Atom 重新应用补丁：
+- Test on different AE versions and report compatibility
+- Improve the patch scripts to support newer Atom releases
+- Write Skills (markdown files) for common motion design workflows
+- Add macOS support to the install script
+- Document edge cases in the wiki
 
-```bash
-cd scripts
-python patch_atom.py          # 授权绕过 + Chat API
-python patch_image_gen.py     # 图像生成 API
-python inject_ui.py           # UI 面板注入
-python patch_spawn_env.py     # Claude spawn 环境变量
-python patch_auth_regex.py    # Auth 检测修复
+### Found a bug or have an idea?
+
+Open an [Issue](https://github.com/tiansuo-114/AE-agent/issues) — all feedback is appreciated.
+
+---
+
+## Architecture
+
 ```
-
----
-
-## 支持的 AI 模型
-
-Atom 内置支持以下模型（通过自定义端点可扩展）：
-
-**聊天/编码模型**（运行本地 Claude Code 或 Codex CLI）
-- Claude 系列（claude-opus, claude-sonnet, claude-haiku）
-- OpenAI 系列（gpt-4o, gpt-4.1, codex）
-
-**图像生成模型**（走 HTTP API）
-- Google Gemini Flash Image Preview
-- OpenAI gpt-image-1
-- Recraft V3
-- Flux 系列
-
----
-
-## 免责声明
-
-> 本项目仅供学习研究，使用者需自行承担风险。  
-> 请支持原版软件：[tryatom.ai](https://tryatom.ai)  
-> 原版 Atom 提供 7 天免费试用，买断制授权。
+AE-Agent
+├── CEP Panel (Svelte/JS)         ← UI running in AE's embedded browser
+│   └── main-Bumuo9MN.js          ← Core bundle (patched)
+├── ExtendScript Bridge           ← Talks to AE's scripting engine
+│   ├── AEKnowledgeExtractorV2    ← Scans composition structure
+│   └── Main.jsx                  ← Script runner
+└── Agent CLI                     ← Claude Code or Codex (local process)
+    └── stdin/stdout JSON stream  ← Communication protocol
+```
 
 ---
 
 ## License
 
-MIT — 补丁代码部分。原版 Atom 插件版权归 tryatom.ai 所有。
+MIT — see [LICENSE](LICENSE)
